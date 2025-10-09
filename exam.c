@@ -37,7 +37,6 @@ int	check_values(int result, int *comb, int ammount, char **av)
 	constructor = -1;;
 	while (++constructor < ammount)
 		total += atoi(av[comb[constructor]]);
-	// printf("\n%d == %d?\n", total, result);
 	return (total == result);
 }
 
@@ -54,7 +53,6 @@ int	get_comb(int result, char **av, int ammout, int max)
 	{
 		if (check_values(result, comb, ammout, av))
 			print_comb(av, comb, ammout);
-		// print_comb(av, comb, ammout);
 		incriment(comb, ammout - 1, max);
 	}
 	free(comb);

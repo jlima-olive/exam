@@ -6,7 +6,7 @@
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 00:21:19 by namejojo          #+#    #+#             */
-/*   Updated: 2025/09/27 01:02:33 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:12:25 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,10 @@ char    *ft_strjoin(char *str1, char *str2)
 char *gnl(int fd)
 {
     static char buffer[BUFF + 1];
-    char        *ret;
-    int         byt;
+    char        *ret = NULL;
+    int         byt = 1;
     char        *temp;
 
-    ret = NULL;
-    byt = 1;
     ret = ft_strjoin(ret, buffer);
     while (ft_strstr(ret, "\n") == NULL && byt > 0)
     {
