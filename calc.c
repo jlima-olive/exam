@@ -56,7 +56,6 @@ node *parse_tree(char *str)
 		return (unexpected(*str), NULL);
 	while (inside_parentesis(str))
 		str++;
-	// printf("aft|%s|\n", str);
 	if (*(str + 1) == '\0')
 	{
 		n.val = *str - 48;
@@ -122,40 +121,25 @@ int	parse_str(char *str)
 	while (str[ind])
 	{
 		if (str[ind] != '(' && str[ind] != ')' && !(str[ind] >= '0' && str[ind] <= '9') && str[ind] != '*' && str[ind] != '+')
-		{
-			printf("here1\n");
 			return (unexpected(str[ind]), INT_MAX);
-		}
 		if (str[ind] == '(')
 		{
 			count++;
 			if (str[ind + 1] == ')' || str[ind + 1] == '+' || str[ind + 1] == '*')
-			{
-				printf("here2\n");
 				return (unexpected(str[ind + 1]), INT_MAX);
-			}
 		}
 		if (str[ind] == ')')
 		{
 			count--;
 			if (str[ind + 1] == '(' || ((str[ind + 1] >= '0' && str[ind + 1] <= '9')))
-			{
-				printf("here3\n");
 				return (unexpected(str[ind + 1]), INT_MAX);
-			}
 		}
 		if (str[ind] >= '0' && str[ind] <= '9')
 			if (str[ind + 1] == '(' || (str[ind + 1] >= '0' && str[ind + 1] <= '9'))
-			{
-				printf("here4\n");
 				return (unexpected(str[ind + 1]), INT_MAX);
-			}
 		if (str[ind] == '*' || str[ind] == '+')
 			if (str[ind + 1] == ')' || str[ind + 1] == '*' || str[ind + 1] == '+')
-			{
-				printf("here5\n");
 				return (unexpected(str[ind + 1]), INT_MAX);
-			}
 		ind++;
 	}
 	return (count);
