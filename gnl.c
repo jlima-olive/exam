@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gnl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 00:21:19 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/09 17:12:25 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/12/02 22:59:48 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,9 @@ char *gnl(int fd)
         buffer[byt] = '\0';
         ret = ft_strjoin(ret, buffer);
     }
-    if (ft_strstr(buffer, "\n"))
-    {
-        temp = ft_strstr(buffer, "\n");
+    temp = ft_strstr(buffer, "\n");
+    if (temp)
         memmove(buffer, temp + 1, strlen(temp) + 1);
-    }
     if (*ret == '\0')
         return (free(ret), NULL);
     return (ret);
